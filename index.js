@@ -3,16 +3,16 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
 
-// const transporter = nodemailer.createTransport({
-//   service : 'gmail',
-//   host: 'sandbox.smtp.mailtrap.io',
-//   port: 587,
-//   secure: true, // use SSL
-//   auth: {
-//     user: 'api',
-//     pass: '211039b91f3b180ed4c6e410e0506c68',
-//   }
-// });
+const transporter = nodemailer.createTransport({
+  service : 'gmail',
+  host: 'sandbox.smtp.mailtrap.io',
+  port: 587,
+  secure: true, // use SSL
+  auth: {
+    user: 'api',
+    pass: '211039b91f3b180ed4c6e410e0506c68',
+  }
+});
 
 const mailOptions = {
   from: 'rockstargames1113@gmail.com',
@@ -557,33 +557,15 @@ app.get('/about', (req, res) => {
 
 app.get('/send-mail', (req, res) => {
 
-  // transporter.sendMail(mailOptions, function(error, info){
-  //   if (error) {
-  //     console.log('Error:', error);
-  //   } else {
-  //     console.log('Email sent:', info.response);
-  //   }
-  // });
-
-  // res.send('Woohoo Mail Send 🎉 ')
-
-  try {
-    nodemailer.createTransport({
-      service: 'gmail',
-      host: 'sandbox.smtp.mailtrap.io',
-      port: 587,
-      secure: true, // use SSL
-      auth: {
-        user: 'api',
-        pass: '211039b91f3b180ed4c6e410e0506c68',
-      }
-    }).sendMail(mailOptions)
-    console.log('Email sent to ' + email)
-  } catch (e) {
-    console.error(e)
-  }
-
-
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log('Error:', error);
+    } else {
+      console.log('Email sent:', info.response);
+    }
+  });
+  
+  res.send('Woohoo Mail Send 🎉 ')
 })
 
 app.listen(port, () => {
