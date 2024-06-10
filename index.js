@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: 'rockstargames1113@gmail.com',
-  to: 'hardik.p@ciright.com',
+  to: 'divyeshmarkana724@gmail.com',
   subject: 'Keep it secret please!',
   text: '**** **** ****xbcwgo',
   cc : ['dev@delight.com'],
