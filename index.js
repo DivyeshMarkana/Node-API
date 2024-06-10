@@ -5,7 +5,7 @@ const port = 3000;
 
 const transporter = nodemailer.createTransport({
   service : 'gmail',
-  host: 'sandbox.smtp.mailtrap.io',
+  host: 'smtp.gmail.com',
   port: 587,
   secure: true, // use SSL
   auth: {
