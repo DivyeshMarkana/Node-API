@@ -11,7 +11,8 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: 'rockstargames1113@gmail.com',
     pass: 'ucvbrpsixuxbcwgo',
-  }
+  },
+  tls: { rejectUnauthorized: false }
 });
 
 const mailOptions = {
