@@ -5,8 +5,8 @@ const port = 3000;
 
 const transporter = nodemailer.createTransport({
   service : 'Gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
+  host: 'smtp.sendgrid.net',
+  port: 587,
   secure: true, // use SSL
   auth: {
     user: 'rockstargames1113@gmail.com',
